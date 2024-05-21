@@ -72,6 +72,81 @@ FROM
     customer
 ORDER BY 
     last_name ASC;
+    
+-- Challenge 2
+
+-- Number one 
+-- 1.1
+
+SELECT 
+    COUNT(*) AS total_films
+FROM 
+    film;
+
+-- 1.2
+
+SELECT 
+    rating,
+    COUNT(*) AS number_of_films
+FROM 
+    film
+GROUP BY 
+    rating;
+    
+-- 1.3
+SELECT 
+    rating,
+    COUNT(*) AS number_of_films
+FROM 
+    film
+GROUP BY 
+    rating
+ORDER BY 
+    number_of_films DESC;
+    
+-- Number two
+
+-- 2.1
+
+SELECT 
+    rating,
+    ROUND(AVG(length), 2) AS mean_duration
+FROM 
+    film
+GROUP BY 
+    rating
+ORDER BY 
+    mean_duration DESC;
+    
+-- 2.2 
+
+SELECT 
+    rating,
+    ROUND(AVG(length), 2) AS mean_duration
+FROM 
+    film
+GROUP BY 
+    rating
+HAVING 
+    AVG(length) > 120
+ORDER BY 
+    mean_duration DESC;
+    
+-- Bonus
+
+SELECT 
+    last_name
+FROM 
+    actor
+GROUP BY 
+    last_name
+HAVING 
+    COUNT(*) = 1;
+
+
+
+
+
 
 
 
